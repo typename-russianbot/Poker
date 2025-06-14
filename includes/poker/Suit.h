@@ -8,7 +8,7 @@ private:
     //& Components
     Texture mTexture;
     Sprite mSprite;
-    Type mCardType;
+    CardType mCardType;
 
     //& Flags
     bool mVisible;
@@ -17,7 +17,7 @@ public:
     //& Resources
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //* @public: Constructor
-    Card(const string = "resources/textures/Clubs/two.png");
+    Card(const string);
 
     //* @public: Copy Constructor
     Card(const Card &);
@@ -32,9 +32,8 @@ public:
     virtual void draw(RenderTarget &target, RenderStates states) const override
     {
         if (mVisible)
-        {
             target.draw(mSprite, states);
-        }
+
         return;
     }
 
@@ -54,7 +53,7 @@ public:
     void setPosition(const Vector2f);
 
     //* @public: setCardType(const Type)
-    void setCardType(const Type);
+    void setCardType(const CardType);
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //& Accessors
@@ -63,7 +62,7 @@ public:
     const Vector2f getPosition(void) const;
 
     //* @public: getCardType(void)
-    const Type getCardType(void) const;
+    const CardType getCardType(void) const;
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //& Overloads
@@ -73,13 +72,13 @@ public:
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 };
 
-//~ @class: Clubs
-class Club : public Drawable
+//~ @class: Suit
+class Suit : public Drawable
 {
 private:
     //& Components
-    Card mCards[13];
-    Suit mSuit;
+    vector<pair<Drawable *, Vector2f>> mCards;
+    SuitType mSuitType;
 
     //& Flags
     bool mVisible;
@@ -88,10 +87,10 @@ public:
     //& Resources
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     //* @public: Constructor
-    Club(void);
+    Suit(const SuitType);
 
     //* @public: Destructor
-    ~Club(void);
+    ~Suit(void);
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //& Functions
@@ -101,13 +100,26 @@ public:
     {
         if (mVisible)
         {
-            for (int i = 0; i < 13; i++)
+            for (auto &[drawable, offset] : mCards)
             {
-                target.draw(mCards[i]);
+                states.transform.translate(offset);
+                target.draw(*drawable, states);
             }
         }
         return;
     }
+
+    //* @public: move(const Vector2f)
+    void move(const Vector2f);
+
+    //* @public: add(Drawable*, Vector2f)
+    void add(Drawable *, Vector2f = {0, 0});
+
+    //* @public: visible(const bool)
+    void visible(const bool);
+
+    //* @public: isVisible(void)
+    const bool isVisible(void) const;
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
     //& Mutators
@@ -117,43 +129,4 @@ public:
     //& Accessors
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-};
-
-//~ @class: Diamonds
-class Diamonds : public Club
-{
-private:
-    //& Resources
-
-    //& Functions
-
-    //& Mutators
-
-    //& Accessors
-};
-
-//~ @class: Hearts
-class Hearts : public Club
-{
-public:
-    //& Resources
-
-    //& Functions
-
-    //& Mutators
-
-    //& Accessors
-};
-
-//~ @class: Spades
-class Spades : public Club
-{
-public:
-    //& Resources
-
-    //& Functions
-
-    //& Mutators
-
-    //& Accessors
 };

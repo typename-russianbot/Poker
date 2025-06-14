@@ -1,4 +1,4 @@
-#include "../../includes/poker/Suits.h"
+#include "../../includes/poker/Suit.h"
 
 //& Resources
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -106,7 +106,7 @@ void Card::setPosition(const Vector2f pos)
 //* @public: setCardType(const Type)
 //* @def: sets cards' type
 
-void Card::setCardType(const Type type)
+void Card::setCardType(const CardType type)
 {
     mCardType = type;
     return;
@@ -127,7 +127,7 @@ const Vector2f Card::getPosition(void) const
 //* @public: getCardType(void)
 //* @def: returns cards' type
 
-const Type Card::getCardType(void) const
+const CardType Card::getCardType(void) const
 {
     return mCardType;
 }

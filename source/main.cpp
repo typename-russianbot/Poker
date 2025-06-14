@@ -1,4 +1,4 @@
-#include "../includes/poker/Suits.h"
+#include "../includes/poker/Suit.h"
 
 //~ @fn: testbench(void)
 int testbench(void)
@@ -6,7 +6,8 @@ int testbench(void)
     //? @vars:
     RenderWindow window(DISPLAY, "P.O.K.E.R");
     Card club("resources/textures/Clubs/ten.png");
-    Club c; 
+    Suit clubs(Clubs);
+    clubs.add(&club);
 
     while (window.isOpen())
     {
@@ -19,8 +20,7 @@ int testbench(void)
         }
 
         window.clear();
-        // window.draw(club);
-        window.draw(c); 
+        window.draw(clubs); 
         window.display();
     }
 

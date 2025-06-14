@@ -62,7 +62,7 @@ using namespace sf;
 //& Enums
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 //~ Suit
-enum Suit
+enum SuitType
 {
     Diamonds,
     Spades,
@@ -71,7 +71,7 @@ enum Suit
 };
 
 //~ Type
-enum Type
+enum CardType
 {
     two,
     three,
