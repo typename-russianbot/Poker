@@ -1,4 +1,4 @@
-#include "../../includes/poker/Suit.h"
+#include "../../includes/poker/Card.h"
 
 //& Resources
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -18,31 +18,31 @@ Card::Card(const string filename) : mVisible(true)
 
     //? Card Type Assignment
     if (filename.find("two") != string::npos)
-        mCardType = two;
+        mRank = two;
     else if (filename.find("three") != string::npos)
-        mCardType = three;
+        mRank = three;
     else if (filename.find("four") != string::npos)
-        mCardType = four;
+        mRank = four;
     else if (filename.find("five") != string::npos)
-        mCardType = five;
+        mRank = five;
     else if (filename.find("six") != string::npos)
-        mCardType = six;
+        mRank = six;
     else if (filename.find("seven") != string::npos)
-        mCardType = seven;
+        mRank = seven;
     else if (filename.find("eight") != string::npos)
-        mCardType = eight;
+        mRank = eight;
     else if (filename.find("nine") != string::npos)
-        mCardType = nine;
+        mRank = nine;
     else if (filename.find("ten") != string::npos)
-        mCardType = ten;
+        mRank = ten;
     else if (filename.find("ace") != string::npos)
-        mCardType = ace;
+        mRank = ace;
     else if (filename.find("jack") != string::npos)
-        mCardType = jack;
+        mRank = jack;
     else if (filename.find("queen") != string::npos)
-        mCardType = queen;
+        mRank = queen;
     else if (filename.find("king") != string::npos)
-        mCardType = king;
+        mRank = king;
     else
         exit(1);
 
@@ -106,9 +106,9 @@ void Card::setPosition(const Vector2f pos)
 //* @public: setCardType(const Type)
 //* @def: sets cards' type
 
-void Card::setCardType(const CardType type)
+void Card::setCardType(const Rank type)
 {
-    mCardType = type;
+    mRank = type;
     return;
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -127,9 +127,9 @@ const Vector2f Card::getPosition(void) const
 //* @public: getCardType(void)
 //* @def: returns cards' type
 
-const CardType Card::getCardType(void) const
+const Rank Card::getCardType(void) const
 {
-    return mCardType;
+    return mRank;
 }
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -140,7 +140,7 @@ const CardType Card::getCardType(void) const
 
 Card &Card::operator=(const Card &other)
 {
-    this->mCardType = other.mCardType;
+    this->mRank = other.mRank;
     this->mVisible = other.mVisible;
     this->mTexture = other.mTexture;
     this->mSprite = other.mSprite;

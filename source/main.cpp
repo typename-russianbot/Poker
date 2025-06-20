@@ -1,34 +1,39 @@
-#include "../includes/poker/Suit.h"
+#include "../includes/poker/Deck.h"
 
-//~ @fn: testbench(void)
-int testbench(void)
+struct Card
 {
-    //? @vars:
-    RenderWindow window(DISPLAY, "P.O.K.E.R");
-    Card club("resources/textures/Clubs/ten.png");
-    Suit clubs(Clubs);
-    clubs.add(&club);
+};
 
-    while (window.isOpen())
-    {
-        Event event;
+// //~ @fn: testbench(void)
+// int testbench(void)
+// {
+//     //? @vars:
+//     RenderWindow window(DISPLAY, "P.O.K.E.R");
 
-        while (window.pollEvent(event))
-        {
-            if (event.type == Event::Closed)
-                window.close();
-        }
+//     while (window.isOpen())
+//     {
+//         Event event;
 
-        window.clear();
-        window.draw(clubs); 
-        window.display();
-    }
+//         while (window.pollEvent(event))
+//         {
+//             if (event.type == Event::Closed)
+//                 window.close();
+//         }
 
-    return 0;
-}
+//         window.clear();
+//         window.display();
+//     }
+
+//     return 0;
+// }
 
 //~ @fn: main(void)
 int main(void)
-{
-    return testbench();
+{ 
+ 
+    // Deck deck; 
+
+    // deck.reshuffle(); 
+
+    return 0; 
 }

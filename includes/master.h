@@ -12,20 +12,18 @@
 #pragma once
 
 //~ Includes
-#include "scenes/ThreeCard.h"
+
 #include <iostream>
 #include <string.h>
-#include <SFML/Graphics.hpp>
-#include <SFML/Window.hpp>
-#include <SFML/System.hpp>
-#include <SFML/Window/Keyboard.hpp>
-#include <SFML/OpenGL.hpp>
+#include <complex>
+#include <cstdlib>
 #include <utility>
 #include <vector>
+#include <ctime>
+#include <stack>
 
 //~ Namespaces
 using namespace std;
-using namespace sf;
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 //& Macros
@@ -61,30 +59,43 @@ using namespace sf;
 
 //& Enums
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-//~ Suit
-enum SuitType
+//~ @enum: Suit
+enum Suit
 {
     Diamonds,
     Spades,
     Hearts,
-    Clubs
+    Clubs,
+    NullSuit
 };
 
-//~ Type
-enum CardType
+//~ @enum: Rank
+enum Rank
 {
-    two,
-    three,
-    four,
-    five,
-    six,
-    seven,
-    eight,
-    nine,
-    ten,
-    ace,
-    jack,
-    queen,
-    king
+    Two,
+    Three,
+    Four,
+    Five,
+    Six,
+    Seven,
+    Eight,
+    Nine,
+    Ten,
+    Ace,
+    Jack,
+    Queen,
+    King,
+    NullRank
 };
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+//& Global Functions
+//////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+//~ Suit
+//~ @overload: operator<<
+ostream &operator<<(ostream &, Suit);
+
+//~ Rank
+//~ @overload: operator<<
+ostream &operator<<(ostream &, Rank);
 //////////////////////////////////////////////////////////////////////////////////////////////////////////////////
