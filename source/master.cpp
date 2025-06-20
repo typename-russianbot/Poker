@@ -8,19 +8,23 @@ ostream &operator<<(ostream &out, Suit suit)
     switch (suit)
     {
     case Diamonds:
-        out << "♦";
+        // out << "♦";
+        out << "Diamonds";
         break;
 
     case Spades:
-        out << "♠";
+        // out << "♠";
+        out << "Spades";
         break;
 
     case Hearts:
-        out << "♥";
+        // out << "♥";
+        out << "Hearts";
         break;
 
     case Clubs:
-        out << "♣";
+        // out << "♣";
+        out << "Clubs";
         break;
 
     default:

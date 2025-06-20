@@ -4,9 +4,21 @@
 //~ @struct:
 struct Cards
 {
-    Suit mSuit;
+    //& Components
     Rank mRank;
+    Suit mSuit;
+
+    //& Overloads
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    //* @public: operator<<
     friend ostream &operator<<(ostream &, Cards);
+
+    //* @public: operator=
+    Cards &operator=(Cards &);
+
+    //* @public: operator==
+    bool operator==(Cards &) const;
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 };
 
 //~ @class: MasterDeck
@@ -14,7 +26,6 @@ class Deck
 {
 private:
     //& Components
-
     Cards mSequence[52]; //* uniquely generated card sequence
     stack<Cards> mStack; //* pushes back cards onto the stack in same sequence as mPattern
 

@@ -18,31 +18,31 @@ Card::Card(const string filename) : mVisible(true)
 
     //? Card Type Assignment
     if (filename.find("two") != string::npos)
-        mRank = two;
+        mRank = Two;
     else if (filename.find("three") != string::npos)
-        mRank = three;
+        mRank = Three;
     else if (filename.find("four") != string::npos)
-        mRank = four;
+        mRank = Four;
     else if (filename.find("five") != string::npos)
-        mRank = five;
+        mRank = Five;
     else if (filename.find("six") != string::npos)
-        mRank = six;
+        mRank = Six;
     else if (filename.find("seven") != string::npos)
-        mRank = seven;
+        mRank = Seven;
     else if (filename.find("eight") != string::npos)
-        mRank = eight;
+        mRank = Eight;
     else if (filename.find("nine") != string::npos)
-        mRank = nine;
+        mRank = Nine;
     else if (filename.find("ten") != string::npos)
-        mRank = ten;
+        mRank = Ten;
     else if (filename.find("ace") != string::npos)
-        mRank = ace;
+        mRank = Ace;
     else if (filename.find("jack") != string::npos)
-        mRank = jack;
+        mRank = Jack;
     else if (filename.find("queen") != string::npos)
-        mRank = queen;
+        mRank = Queen;
     else if (filename.find("king") != string::npos)
-        mRank = king;
+        mRank = King;
     else
         exit(1);
 
